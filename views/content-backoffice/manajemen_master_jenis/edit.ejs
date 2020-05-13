@@ -17,15 +17,33 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="panel">
         <div class="panel-content">
-          <form role="form" action="#" method="POST" enctype="multipart/form-data">
+          <form role="form" action="/manajemen_master/submit_edit" method="POST" >
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group">
                   <label>Bidang</label>
                   <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                      <select class="form-control" name="" id="" data-search="true">
-                        <option>-- Pilih --</option>
+                      <select class="form-control" name="bidang" id="" data-search="true">
+                        <option>BIDANG MULTISEKTOR</option>
+                        <option>BIDANG SUMBER DAYA ENERGI DAN MINERAL (ESDM)</option>
+                        <option>BIDANG PEKERJAAN UMUM</option>
+                        <option>BIDANG CIPTA KARYA</option>
+                        <option>BIDANG KEBERSIHAN</option>
+                        <option>BIDANG PERDAGANGAN</option>
+                        <option>BIDANG PERINDUSTRIAN</option>
+                        <option>BIDANG PERTANIAN</option>
+                        <option>BIDANG PETERNAKAN</option>
+                        <option>BIDANG PERKEBUNAN</option>
+                        <option>BIDANG KEHUTANAN</option>
+                        <option>BIDANG PERIKANAN</option>
+                        <option>BIDANG PARIWISATA</option>
+                        <option>BIDANG KESEHATAN</option>
+                        <option>BIDANG PERHUBUNGAN</option>
+                        <option>BIDANG KOMUNIKASI DAN INFORMATIKA</option>
+                        <option>BIDANG PERTAHANAN</option>
+                        <option>BIDANG PENGEMBANGAN NUKLIR</option>
+                        <option>BIDANG PENGOLAHAN LIMBAH B-3</option>
                       </select>
                     </div>
                   </div>
@@ -35,7 +53,7 @@
                   <label>Jenis Usaha/Kegiatan</label>
                   <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                      <input type="text" class="form-control" name="" id="">
+                      <input type="text" class="form-control" name="jenis" id="">
                     </div>
                   </div>
                 </div>
@@ -67,30 +85,30 @@
                             <th style="text-align: center;">Batas Minimal</th>
                             <th style="text-align: center;">&#8804;</th>
                             <th style="text-align: center;">X</th>
-                            <th style="text-align: center;">&#8805;</th>
+                            <th style="text-align: center;">&#8804;</th>
                             <th style="text-align: center;">Batas Maximal</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr  id='addr0'>
-                            <td><input type="text" class="form-control" name="" id=""></td>
-                            <td><input type="text" class="form-control" name="" id=""></td>
+                            <td><input type="text" class="form-control" name="satuan[]" id=""></td>
+                            <td><input type="text" class="form-control" name="min[]" id=""></td>
                             <td>
-                              <select class="form-control" name="" id="" data-search="true">
-                                <option>-- Pilih --</option>
-                                <option>&#8804;</option>
-                                <option>&#8805;</option>
+                              <select class="form-control" name="simbolmin[]" id="" data-search="true">
+                                <option value="">-- Pilih --</option>
+                                <option value="<=">&#8804;</option>
+                                <option value="<"><</option>
                               </select>
                             </td>
                             <td style="text-align: center;">X</td>
                             <td>
-                              <select class="form-control" name="" id="" data-search="true">
-                                <option>-- Pilih --</option>
-                                <option>&#8804;</option>
-                                <option>&#8805;</option>
+                              <select class="form-control" name="simbolmax[]" id="" data-search="true">
+                                <option value="">-- Pilih --</option>
+                                <option value="<=">&#8804;</option>
+                                <option value="<"><</option>
                               </select>
                             </td>
-                            <td><input type="text" class="form-control" name="" id=""></td>
+                            <td><input type="text" class="form-control" name="max[]" id=""></td>
                           </tr>
                           <tr id='addr1'></tr>
                         </tbody>
