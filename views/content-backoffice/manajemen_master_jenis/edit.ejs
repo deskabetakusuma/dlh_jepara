@@ -142,7 +142,7 @@
 <script type="text/javascript">
             var i=1;
             $("#add_row").click(function(){
-                $('#addr'+i).html("<td><input type='text' class='form-control' name='' id=''></td><td><input type='text' class='form-control' name='' id=''></td><td><select class='form-control' name='' id='' data-search='true'><option>-- Pilih --</option><option>&#8804;</option><option>&#8805;</option></select></td><td style='text-align: center;'>X</td><td><select class='form-control' name='' id='' data-search='true'><option>-- Pilih --</option><option>&#8804;</option><option>&#8805;</option></select></td><td><input type='text' class='form-control' name='' id=''></td>");
+                $('#addr'+i).html("<td><input type='text' class='form-control' name='satuan[]' id=''></td><td><input type='text' class='form-control' name='batas_min[]' id=''></td><td><select class='form-control' name='simbolmin[]' id='' data-search='true'><option value=''>-- Pilih --</option><option value='<='>&#8804;</option><option value='<'><</option></select></td><td style='text-align: center;'>X</td><td><select class='form-control' name='simbolmax[]' id='' data-search='true'><option value=''>-- Pilih --</option><option value='<='>&#8804;</option><option value='<'><</option></select></td><td><input type='text' class='form-control' name='batas_max[]' id=''></td>");
 
                 $('#table-satuan').append('<tr id="addr'+(i+1)+'"></tr>');
                 i++; 
