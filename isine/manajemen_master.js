@@ -70,4 +70,42 @@ router.get('/jenis/edit/:id', cek_login, function(req, res) {
   res.render('content-backoffice/manajemen_master_jenis/edit'); 
 });
 
+router.post('/submit_insert', cek_login, function(req, res){
+  var idne ="";
+  var post = {}
+ post = req.body;
+ 
+var satuan=req.body.satuan;
+var batas_min=req.body.batas_min;
+var simbolmin=req.body.simbolmin;
+var simbolmax=req.body.simbolmax;
+var batas_max=req.body.batas_max;
+console.log(satuan);
+delete post['satuan'];
+delete post['batas_min'];
+delete post['simbolmin'];
+delete post['simbolmax'];
+delete post['batas_max'];
+ console.log(post)
+   sql_enak.insert(post).into("master_jenis").then(function (id) {
+  console.log(id);
+  idne=id;
+})
+.finally(function() {
+  
+    
+    for(var i=0; i<satuan.length; i++){
+   
+      console.log(satuan[i]);
+      connection.query("INSERT INTO rumus (satuan, id_jenis, batas_min, batas_max, simbolmin, simbolmax) VALUES ('"+satuan[i]+"', '"+idne+"','"+batas_min[i]+"','"+batas_max[i]+"','"+simbolmin[i]+"', '"+simbolmax[i]+"');", function(err, aa, fields) {
+        
+    })
+      
+      
+    }
+  
+    res.redirect('/manajemen_master/jenis'); 
+  
+});
+});
 module.exports = router;
