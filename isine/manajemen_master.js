@@ -59,7 +59,9 @@ var upload = multer({ storage: storage })
 
 //start-------------------------------------
 router.get('/jenis', cek_login, function(req, res) {
-  res.render('content-backoffice/manajemen_master_jenis/list'); 
+  connection.query("SELECT * from master_jenis where deleted=0", function(err, rows, fields) {
+  res.render('content-backoffice/manajemen_master_jenis/list',{data:rows}); 
+})
 });
 
 router.get('/jenis/insert', cek_login, function(req, res) {
@@ -108,4 +110,17 @@ delete post['batas_max'];
   
 });
 });
+
+router.get('/delete/:id', cek_login, function(req, res) {
+  
+  // senjata
+  // console.log(req.params.id)
+  connection.query("update master_jenis SET deleted=1 WHERE id='"+req.params.id+"' ", function(err, rows, fields) {
+  //  if (err) throw err;
+    numRows = rows.affectedRows;
+  })
+
+  res.redirect('/manajemen_master/jenis');
+});
+
 module.exports = router;
