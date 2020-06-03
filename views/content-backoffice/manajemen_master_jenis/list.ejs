@@ -30,20 +30,22 @@
             </thead>
             
             <tbody>
+            <% for(var i=0; i<data.length; i++){ %>
             <tr>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
+              <td><%= i+1%></td>
+              <td><%= data[i].bidang%></td>
+              <td><%= data[i].jenis%></td>
               <td>
                 <center>
                 <ul class="list-inline">
-                  <li><a class="btn btn-warning btn-embossed btn-sm" href="/manajemen_master/jenis/edit/1" role="button" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></li>
+                  <li><a class="btn btn-warning btn-embossed btn-sm" href="/manajemen_master/jenis/edit/<%= data[i].id%>" role="button" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></li>
                   <li class="separator">|</li>
-                  <li><a class="btn btn-danger btn-embossed btn-sm" href="#" role="button" onclick="return confirm('Apakah anda yakin untuk menghapus data ini ?');"><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
+                  <li><a class="btn btn-danger btn-embossed btn-sm" href="/manajemen_master/delete/<%= data[i].id%>" role="button" onclick="return confirm('Apakah anda yakin untuk menghapus data ini ?');"><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
                 </ul>
                 </center>
               </td>
             </tr>
+            <%}%>
             </tbody>
           </table>
         </div>
