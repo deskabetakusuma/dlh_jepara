@@ -133,7 +133,7 @@ app.get('/get_hasil/:id/:ukuran', function (req, res) {
       }
       
     }
-    if(rows.simbolmax!=""){
+    if(rows[0].simbolmax!=""){
       if( req.params.ukuran rows[0].simbolmax rows[0].batas_max){
         if(status!="sppl"){
           status="ukl upl";
