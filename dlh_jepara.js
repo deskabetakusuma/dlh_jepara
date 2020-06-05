@@ -110,6 +110,17 @@ app.get('/backoffice', cek_login, function (req, res) {
   res.render('content-backoffice/index');
 });
 
+app.get('/get_jenis/:bidang', function (req, res) {
+  connection.query("SELECT * from master_jenis where deleted=0 and bidang='"+req.params.bidang+"'", function(err, rows, fields) {
+  res.json(rows);
+})
+});
+
+app.get('/get_rumus/:id', function (req, res) {
+  connection.query("SELECT * from rumus where id_jenis="+req.params.id, function(err, rows, fields) {
+  res.json(rows);
+})
+});
 
 // app.get('/4E26CD6CB47148CCFB9334CB15B95495.txt', function (req, res) {
 //   console.log(req.user)
