@@ -69,7 +69,11 @@ router.get('/jenis/insert', cek_login, function(req, res) {
 });
 
 router.get('/jenis/edit/:id', cek_login, function(req, res) {
-  res.render('content-backoffice/manajemen_master_jenis/edit'); 
+  connection.query("SELECT * from master_jenis where deleted=0 and id="+req.params.id, function(err, rows, fields) {
+    connection.query("SELECT * from rumus where deleted=0 and id_jenis="+req.params.id, function(err, rowss, fields) {
+  res.render('content-backoffice/manajemen_master_jenis/edit',{data:rows, rumus:rumus});
+  }) 
+})
 });
 
 router.post('/submit_insert', cek_login, function(req, res){
@@ -107,6 +111,51 @@ delete post['batas_max'];
     }
   
     res.redirect('/manajemen_master/jenis'); 
+  
+});
+});
+
+router.post('/submit_edit', cek_login, function(req, res){
+  var idne ="";
+  var post = {}
+ post = req.body;
+ 
+var satuan=req.body.satuan;
+var batas_min=req.body.batas_min;
+var simbolmin=req.body.simbolmin;
+var simbolmax=req.body.simbolmax;
+var batas_max=req.body.batas_max;
+console.log(satuan);
+delete post['satuan'];
+delete post['batas_min'];
+delete post['simbolmin'];
+delete post['simbolmax'];
+delete post['batas_max'];
+ console.log(post)
+ var done=false;
+ connection.query("DELETE FROM rumus WHERE id_jenis="+req.body.id, function(err, d, fields) {
+ done = true;
+ })
+ deasync.loopWhile(function(){return !done;});
+
+   sql_enak("master_jenis").where("id", req.body.id)
+  .update(post).then(function (count) {
+console.log(count);
+})
+.finally(function() {
+  
+    
+    for(var i=0; i<satuan.length; i++){
+   
+      console.log(satuan[i]);
+      connection.query("INSERT INTO rumus (satuan, id_jenis, batas_min, batas_max, simbolmin, simbolmax) VALUES ('"+satuan[i]+"', '"+req.body.id+"','"+batas_min[i]+"','"+batas_max[i]+"','"+simbolmin[i]+"', '"+simbolmax[i]+"');", function(err, aa, fields) {
+        
+    })
+      
+      
+    }
+  
+    res.redirect('/manajemen_master/jenis/edit/'+req.body.id); 
   
 });
 });

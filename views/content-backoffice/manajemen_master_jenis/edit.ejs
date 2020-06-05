@@ -17,14 +17,15 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="panel">
         <div class="panel-content">
-          <form role="form" action="/manajemen_master/submit_edit" method="POST" >
+          <form role="form" action="/manajemen_master/submit_edit" method="POST">
+          <input type="hidden" name="id" value="<%= data[0].id%>">
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group">
                   <label>Bidang</label>
                   <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                      <select class="form-control" name="bidang" id="" data-search="true">
+                      <select class="form-control" name="bidang" id="bidang" data-search="true">
                         <option>BIDANG MULTISEKTOR</option>
                         <option>BIDANG SUMBER DAYA ENERGI DAN MINERAL (ESDM)</option>
                         <option>BIDANG PEKERJAAN UMUM</option>
@@ -53,7 +54,7 @@
                   <label>Jenis Usaha/Kegiatan</label>
                   <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                      <input type="text" class="form-control" name="jenis" id="">
+                      <input type="text" class="form-control" name="jenis" id="" value="<%= data[0].jenis%>">
                     </div>
                   </div>
                 </div>
@@ -90,27 +91,29 @@
                           </tr>
                         </thead>
                         <tbody>
+                        <% for(var i=0; i<rumus.length; i++){ %>
                           <tr  id='addr0'>
-                            <td><input type="text" class="form-control" name="satuan[]" id=""></td>
-                            <td><input type="text" class="form-control" name="batas_min[]" id=""></td>
+                            <td><input type="text" class="form-control" name="satuan[]" id="" value="<%= rumus[i].satuan%>"></td>
+                            <td><input type="text" class="form-control" name="batas_min[]" id="" value="<%= rumus[i].batas_min%>"></td>
                             <td>
                               <select class="form-control" name="simbolmin[]" id="" data-search="true">
                                 <option value="">-- Pilih --</option>
-                                <option value="<=">&#8804;</option>
-                                <option value="<"><</option>
+                                <option value="<=" <%if(rumus[i].simbolmin=="<="){%>selected<%}%>>&#8804;</option>
+                                <option value="<" <%if(rumus[i].simbolmin=="<"){%>selected<%}%>><</option>
                               </select>
                             </td>
                             <td style="text-align: center;">X</td>
                             <td>
                               <select class="form-control" name="simbolmax[]" id="" data-search="true">
                                 <option value="">-- Pilih --</option>
-                                <option value="<=">&#8804;</option>
-                                <option value="<"><</option>
+                                <option value="<=" <%if(rumus[i].simbolmax=="<="){%>selected<%}%>>&#8804;</option>
+                                <option value="<" <%if(rumus[i].simbolmax=="<"){%>selected<%}%>><</option>
                               </select>
                             </td>
-                            <td><input type="text" class="form-control" name="batas_max[]" id=""></td>
+                            <td><input type="text" class="form-control" name="batas_max[]" id="" value="<%= rumus[i].batas_max%>"></td>
                           </tr>
-                          <tr id='addr1'></tr>
+                          <%}%>
+                          
                         </tbody>
                       </table>
                     </div>
@@ -130,7 +133,7 @@
   <div class="footer">
     <div class="copyright">
       <p class="pull-left sm-pull-reset">
-        <span>Copyright <span class="copyright">©</span> 2018</span>
+        <span>Copyright <span class="copyright">©</span> 2020</span>
         <span>Pemerintah</span>.
       </p>
     </div>
