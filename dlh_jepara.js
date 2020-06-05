@@ -122,6 +122,30 @@ app.get('/get_rumus/:id', function (req, res) {
 })
 });
 
+app.get('/get_hasil/:id/:ukuran', function (req, res) {
+  var status="";
+  connection.query("SELECT * from rumus where id_jenis="+req.params.id, function(err, rows, fields) {
+    if(rows[0].simbolmin!=""){
+      if(rows[0].batas_min rows[0].simbolmin req.params.ukuran){
+        status="ukl upl";
+      }else{
+        status="sppl";
+      }
+      
+    }
+    if(rows.simbolmax!=""){
+      if( req.params.ukuran rows[0].simbolmax rows[0].batas_max){
+        if(status!="sppl"){
+          status="ukl upl";
+        }
+      }else{
+        status="AMDAL"
+      }
+    }
+  })
+  res.json(status);
+  console.log(status);
+})
 // app.get('/4E26CD6CB47148CCFB9334CB15B95495.txt', function (req, res) {
 //   console.log(req.user)
 //   //res.render('7ECA9DC7A2167A6EB33B60F1DA8B85E1.txt');
