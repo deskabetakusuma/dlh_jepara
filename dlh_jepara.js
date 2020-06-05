@@ -157,9 +157,9 @@ app.get('/get_hasil/:id/:ukuran', function (req, res) {
         status="AMDAL"
       }
     }
+    res.json(status);
+    console.log(status);
   })
-  res.json(status);
-  console.log(status);
 })
 // app.get('/4E26CD6CB47148CCFB9334CB15B95495.txt', function (req, res) {
 //   console.log(req.user)
