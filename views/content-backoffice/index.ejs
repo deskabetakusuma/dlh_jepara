@@ -135,7 +135,7 @@ $('#bidang').change(function(){
                                                  dataType : 'json',
                                                  success: function (dataa) {
                                                   $.each(dataa, function(indexx, itemm){
-                                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="" id="ukuran"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> </tr>');
+                                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> </tr>');
                                                   })
                                                  }
                                                })
@@ -162,7 +162,7 @@ $('#bidang').change(function(){
                               success: function (data) {
                                 console.log(data)
                                $.each(data, function(indexx, itemm){
-                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="" id="ukuran"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> </tr>');
+                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> </tr>');
                                   
                               })
                              
