@@ -126,21 +126,24 @@ app.get('/get_hasil/:id/:ukuran', function (req, res) {
   var status="";
   connection.query("SELECT * from rumus where id_jenis="+req.params.id, function(err, rows, fields) {
     if(rows[0].simbolmin!=""){
-      // if(rows[0].batas_min rows[0].simbolmin req.params.ukuran){
-      //   status="ukl upl";
-      // }else{
-      //   status="sppl";
-      // }
+     var tes=compare(rows[0].batas_min, rows[0].simbolmin, req.params.ukuran)
+
+     if(tes){
+        status="ukl upl";
+      }else{
+        status="sppl";
+      }
       
     }
     if(rows[0].simbolmax!=""){
-      // if( req.params.ukuran rows[0].simbolmax rows[0].batas_max){
-      //   if(status!="sppl"){
-      //     status="ukl upl";
-      //   }
-      // }else{
-      //   status="AMDAL"
-      // }
+      var tes=compare( req.params.ukuran, rows[0].simbolmax, rows[0].batas_max)
+      if(tes){
+        if(status!="sppl"){
+          status="ukl upl";
+        }
+      }else{
+        status="AMDAL"
+      }
     }
   })
   res.json(status);
