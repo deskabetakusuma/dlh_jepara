@@ -71,7 +71,7 @@ router.get('/jenis/insert', cek_login, function(req, res) {
 router.get('/jenis/edit/:id', cek_login, function(req, res) {
   connection.query("SELECT * from master_jenis where deleted=0 and id="+req.params.id, function(err, rows, fields) {
     connection.query("SELECT * from rumus where deleted=0 and id_jenis="+req.params.id, function(err, rowss, fields) {
-  res.render('content-backoffice/manajemen_master_jenis/edit',{data:rows, rumus:rumus});
+  res.render('content-backoffice/manajemen_master_jenis/edit',{data:rows, rumus:rowss});
   }) 
 })
 });
