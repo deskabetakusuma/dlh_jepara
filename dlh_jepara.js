@@ -138,7 +138,7 @@ app.get('/get_hasil/:id/:ukuran', function (req, res) {
   var status="";
   connection.query("SELECT * from rumus where id_jenis="+req.params.id, function(err, rows, fields) {
     if(rows[0].simbolmin!=""){
-     var tes=compare(rows[0].batas_min, rows[0].simbolmin, req.params.ukuran)
+     var tes=compare(parseFloat(rows[0].batas_min), rows[0].simbolmin, parseFloat(req.params.ukuran))
 
      if(tes){
         status="ukl upl";
@@ -148,7 +148,7 @@ app.get('/get_hasil/:id/:ukuran', function (req, res) {
       
     }
     if(rows[0].simbolmax!=""){
-      var tes=compare( req.params.ukuran, rows[0].simbolmax, rows[0].batas_max)
+      var tes=compare(parseFloat(req.params.ukuran), rows[0].simbolmax, parseFloat(rows[0].batas_max))
       if(tes){
         if(status!="sppl"){
           status="ukl upl";
