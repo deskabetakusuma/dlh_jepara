@@ -96,6 +96,18 @@ app.use('/uploadckeditor', fn);
 app.use('/basic', basic);
 app.use('/manajemen_master', manajemen_master);
 
+function compare(post, operator, value) {
+  switch (operator) {
+    case '>':   return post > value;
+    case '<':   return post < value;
+    case '>=':  return post >= value;
+    case '<=':  return post <= value;
+    case '==':  return post == value;
+    case '!=':  return post != value;
+    case '===': return post === value;
+    case '!==': return post !== value;
+  }
+}
 
 app.get('/', function (req, res) {
   console.log(req.user)
