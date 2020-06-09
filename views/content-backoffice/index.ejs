@@ -202,6 +202,9 @@ function proses(){
                               dataType : 'json',
                               success: function (data) {
                                 
+                                  
+                                  $("#output_row["+index+"]".html(data))
+                                
                                 console.log(data);
                                 if(data=="AMDAL"){
                                   output=data;
