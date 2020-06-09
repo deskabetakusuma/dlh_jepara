@@ -136,7 +136,7 @@ app.get('/get_rumus/:id', function (req, res) {
 
 app.get('/get_hasil/:id/:ukuran', function (req, res) {
   var status="";
-  connection.query("SELECT * from rumus where id_jenis="+req.params.id, function(err, rows, fields) {
+  connection.query("SELECT * from rumus where id="+req.params.id, function(err, rows, fields) {
     if(rows[0].simbolmin!=""){
      var tes=compare(parseFloat(rows[0].batas_min), rows[0].simbolmin, parseFloat(req.params.ukuran))
 
