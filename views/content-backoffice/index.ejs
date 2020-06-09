@@ -187,36 +187,8 @@ function proses(){
   var tampung_ukuran = $('input[name="ukuran[]"]').map(function () {
     return this.value;
 }).get();
-
-              if(tampung_id.length>0){
-                output="sppl";
-                $.each(tampung_id, function(index, item){
-                    $.ajax({
-                              type : "GET",
-                              async : false,
-                              global : false,
-                              url : "/get_hasil/"+tampung_id[index]+"/"+tampung_ukuran[index],
-                              dataType : 'json',
-                              success: function (data) {
-                                $.each(data, function(indexx, itemm){
-                                  $("#output_row["+indexx+"]".html(itemm))
-                                })
-                                console.log(data);
-                                if(data=="AMDAL"){
-                                  output=data;
-                                }else{
-                                  if(data=="ukl upl"){
-                                    output=data;
-                                  }
-                                }
-                                
-                              }
-                            
-                            })
-                })
-              }else{
-                output="ukl upl"
-              }
+console.log(tampung_ukuran);
+              
               $("#hasil").html(output);
 
 }
