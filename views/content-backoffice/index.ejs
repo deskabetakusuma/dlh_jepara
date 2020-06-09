@@ -89,7 +89,9 @@
                   
 
                 </div>
-                <button type="submit" class="btn btn-primary btn-embossed">Simpan</button>
+                <button class="btn btn-primary btn-embossed" onclick="proses()">Proses</button>
+                <br/>
+                <h3 id="hasil"></h3>
               </div>
             </div>
           </form>
@@ -110,7 +112,10 @@
 
 <% include ../template-backoffice/footer.ejs %>
 <script type="text/javascript">
+var tampung_id=[];
+
 $('#bidang').change(function(){
+  tampung_id=[];
   $("#jenis").empty();
   $("#tabele").empty();
         $('#jenis').select2('val', null);
@@ -135,7 +140,8 @@ $('#bidang').change(function(){
                                                  dataType : 'json',
                                                  success: function (dataa) {
                                                   $.each(dataa, function(indexx, itemm){
-                                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> </tr>');
+                                                    tampung_id.push(itemm.id); 
+                                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="ukuran[]" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> </tr>');
                                                   })
                                                  }
                                                })
@@ -152,6 +158,7 @@ $('#bidang').change(function(){
                 })
     
     $('#jenis').change(function(){
+      tampung_id=[];
       $("#tabele").empty();
       $.ajax({
                               type : "GET",
@@ -160,13 +167,36 @@ $('#bidang').change(function(){
                               url : "/get_rumus/"+$('#jenis').val(),
                               dataType : 'json',
                               success: function (data) {
+                                tampung_id.push(itemm.id);
                                 console.log(data)
                                $.each(data, function(indexx, itemm){
-                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> </tr>');
+                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="ukuran[]" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> </tr>');
                                   
                               })
                              
                               }
                             });
     })
+
+function proses(){
+  var tampung_ukuran = $("input[name='ukuran[]']")
+              .map(function(){return $(this).val();}).get();
+
+              if(tampung_id.length>0){
+                $.each(tampung_id, function(index, item){
+                    $.ajax({
+                              type : "GET",
+                              async : false,
+                              global : false,
+                              url : "/get_hasil/"+item+"/"+tampung_ukuran[index],
+                              dataType : 'json',
+                              success: function (data) {
+                                console.log(data);
+                              }
+                            })
+                })
+              }else{
+
+              }
+}
 </script>
