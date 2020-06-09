@@ -142,7 +142,7 @@ $('#bidang').change(function(){
                                                  success: function (dataa) {
                                                   $.each(dataa, function(indexx, itemm){
                                                     tampung_id.push(itemm.id); 
-                                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="ukuran[]" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td><td id="output_row['+indexx+']"></td></tr>');
+                                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="ukuran[]" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td><td id="output_row'+indexx+'"></td></tr>');
                                                   })
                                                  }
                                                })
@@ -172,7 +172,7 @@ $('#bidang').change(function(){
                                 console.log(data)
                                $.each(data, function(indexx, itemm){
                                 tampung_id.push(itemm.id);
-                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="ukuran[]" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> <td id="output_row['+indexx+']"></td></tr>');
+                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="ukuran[]" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> <td id="output_row'+indexx+'"></td></tr>');
                                   
                               })
                              
@@ -203,7 +203,7 @@ function proses(){
                               success: function (data) {
                                 
                                   
-                                  $("#output_row["+index+"]").html(data);
+                                  $("#output_row"+index+"").html(data);
                                 
                                 console.log(data);
                                 if(data=="AMDAL"){
