@@ -182,7 +182,8 @@ $('#bidang').change(function(){
 
 function proses(){
   var output="";
-  var tampung_ukuran = $("input[name='ukuran[]']").map(function(){return $(this).val();}).get();
+  var tampung_ukuran=[];
+  // var tampung_ukuran = $("input[name='ukuran[]']").map(function(){return $(this).val();}).get();
 
               if(tampung_id.length>0){
                 output="sppl";
