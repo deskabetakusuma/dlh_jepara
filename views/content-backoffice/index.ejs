@@ -203,7 +203,7 @@ function proses(){
                               success: function (data) {
                                 
                                   
-                                  $("#output_row["+index+"]".html(data))
+                                  $("#output_row["+index+"]").html(data);
                                 
                                 console.log(data);
                                 if(data=="AMDAL"){
