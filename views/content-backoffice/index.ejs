@@ -90,7 +90,7 @@
                   
 
                 </div>
-                <button class="btn btn-primary btn-embossed" onclick="proses(e)">Proses</button>
+                <button class="btn btn-primary btn-embossed" onclick="proses()">Proses</button>
                 <br/>
                 <h3 id="hasil"></h3>
               </div>
@@ -180,8 +180,8 @@ $('#bidang').change(function(){
                             });
     })
 
-function proses(e){
-  e.preventDefault();
+function proses(){
+  
   var output="";
   var tampung_ukuran = $("input[name='ukuran[]']").map(function(){return $(this).val();}).get();
 
