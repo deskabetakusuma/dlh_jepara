@@ -193,28 +193,28 @@ function proses(){
                 $.each(tampung_id, function(index, item){
                   console.log(tampung_id[index]);
                   console.log(tampung_ukuran[index]);
-                    $.ajax({
-                              type : "GET",
-                              async : false,
-                              global : false,
-                              url : "/get_hasil/"+tampung_id[index]+"/"+tampung_ukuran[index],
-                              dataType : 'json',
-                              success: function (data) {
-                                $.each(data, function(indexx, itemm){
-                                  $("#output_row["+indexx+"]".html(itemm))
-                                })
-                                console.log(data);
-                                if(data=="AMDAL"){
-                                  output=data;
-                                }else{
-                                  if(data=="ukl upl"){
-                                    output=data;
-                                  }
-                                }
+                    // $.ajax({
+                    //           type : "GET",
+                    //           async : false,
+                    //           global : false,
+                    //           url : "/get_hasil/"+tampung_id[index]+"/"+tampung_ukuran[index],
+                    //           dataType : 'json',
+                    //           success: function (data) {
+                    //             $.each(data, function(indexx, itemm){
+                    //               $("#output_row["+indexx+"]".html(itemm))
+                    //             })
+                    //             console.log(data);
+                    //             if(data=="AMDAL"){
+                    //               output=data;
+                    //             }else{
+                    //               if(data=="ukl upl"){
+                    //                 output=data;
+                    //               }
+                    //             }
                                 
-                              }
+                    //           }
                             
-                            })
+                    //         })
                 })
               }else{
                 output="ukl upl"
