@@ -79,6 +79,7 @@
                             <th style="text-align: center;width: 100px;">Ukuran</th>
                             <th style="text-align: center;">&#8805;</th>
                             <th style="text-align: center;">Batas Maximal</th>
+                            <th style="text-align: center;">HASIL</th>
                           </tr>
                         </thead>
                         <tbody id="tabele">
@@ -141,7 +142,7 @@ $('#bidang').change(function(){
                                                  success: function (dataa) {
                                                   $.each(dataa, function(indexx, itemm){
                                                     tampung_id.push(itemm.id); 
-                                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="ukuran[]" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> </tr>');
+                                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="ukuran[]" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td><td id="output_row['+indexx+']"></td></tr>');
                                                   })
                                                  }
                                                })
@@ -171,7 +172,7 @@ $('#bidang').change(function(){
                                 console.log(data)
                                $.each(data, function(indexx, itemm){
                                 tampung_id.push(itemm.id);
-                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="ukuran[]" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> </tr>');
+                                  $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="ukuran[]" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> <td id="output_row['+indexx+']"></td></tr>');
                                   
                               })
                              
@@ -180,10 +181,12 @@ $('#bidang').change(function(){
     })
 
 function proses(){
+  var output="";
   var tampung_ukuran = $("input[name='ukuran[]']")
               .map(function(){return $(this).val();}).get();
 
               if(tampung_id.length>0){
+                output="sppl";
                 $.each(tampung_id, function(index, item){
                     $.ajax({
                               type : "GET",
@@ -192,12 +195,25 @@ function proses(){
                               url : "/get_hasil/"+tampung_id[index]+"/"+tampung_ukuran[index],
                               dataType : 'json',
                               success: function (data) {
+                                $.each(data, function(indexx, itemm){
+                                  $("#output_row["+indexx+"]".html(itemm))
+                                })
                                 console.log(data);
+                                if(data=="AMDAL"){
+                                  output=data;
+                                }else{
+                                  if(data=="ukl upl"){
+                                    output=data;
+                                  }
+                                }
+                                
                               }
+                            event.preventDefault()
                             })
                 })
               }else{
-
+                output="ukl upl"
               }
+              $("#hasil").html(output);
 }
 </script>
