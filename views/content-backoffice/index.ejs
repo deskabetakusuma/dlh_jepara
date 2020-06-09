@@ -167,9 +167,10 @@ $('#bidang').change(function(){
                               url : "/get_rumus/"+$('#jenis').val(),
                               dataType : 'json',
                               success: function (data) {
-                                tampung_id.push(itemm.id);
+                                
                                 console.log(data)
                                $.each(data, function(indexx, itemm){
+                                tampung_id.push(itemm.id);
                                   $("#tabele").append('<tr ><td style="text-align: center;">'+itemm.satuan+'</td><td style="text-align: center;">'+itemm.batas_min+'</td><td style="text-align: center;">'+itemm.simbolmin+'</td><td><input type="number" class="form-control" name="ukuran[]" id="ukuran" value="0"></td> <td style="text-align: center;">'+itemm.simbolmax+'</td><td style="text-align: center;">'+itemm.batas_max+'</td> </tr>');
                                   
                               })
