@@ -188,7 +188,7 @@ function proses(){
                               type : "GET",
                               async : false,
                               global : false,
-                              url : "/get_hasil/"+item+"/"+tampung_ukuran[index],
+                              url : "/get_hasil/"+tampung_id[index]+"/"+tampung_ukuran[index],
                               dataType : 'json',
                               success: function (data) {
                                 console.log(data);
