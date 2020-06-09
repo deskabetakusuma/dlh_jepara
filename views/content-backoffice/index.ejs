@@ -90,7 +90,7 @@
                   </form>
 
                 </div>
-                <button class="btn btn-primary btn-embossed" onclick="proses()">Proses</button>
+                <button class="btn btn-primary btn-embossed" onclick="proses(e)">Proses</button>
                 <br/>
                 <h3 id="hasil"></h3>
               </div>
@@ -180,7 +180,8 @@ $('#bidang').change(function(){
                             });
     })
 
-function proses(){
+function proses(e){
+  e.preventDefault();
   var output="";
   var tampung_ukuran = $("input[name='ukuran[]']").map(function(){return $(this).val();}).get();
 
@@ -214,5 +215,6 @@ function proses(){
                 output="ukl upl"
               }
               $("#hasil").html(output);
+
 }
 </script>
