@@ -59,9 +59,25 @@ var upload = multer({ storage: storage })
 
 //start-------------------------------------
 router.get('/jenis', cek_login, function(req, res) {
+  var done=false;
+  var data=[];
   connection.query("SELECT * from master_jenis where deleted=0", function(err, rows, fields) {
-  res.render('content-backoffice/manajemen_master_jenis/list',{data:rows}); 
-})
+    data=rows
+    done=true;
+  })
+  deasync.loopWhile(function(){return !done;});
+
+  for(var i=0; i<data.length; i++){
+    data[i].rumus=[];
+    done=false;
+    connection.query("SELECT * from rumus where id_jenis="+data[i].id, function(err, rowss, fields) {
+      data[i].rumus=rowss;
+      done=true;
+    })
+    deasync.loopWhile(function(){return !done;});
+  }
+  res.render('content-backoffice/manajemen_master_jenis/list',{data:data}); 
+
 });
 
 router.get('/jenis/insert', cek_login, function(req, res) {

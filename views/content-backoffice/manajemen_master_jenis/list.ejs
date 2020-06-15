@@ -25,6 +25,7 @@
                 <th class="header">No.</th>
                 <th class="header">Bidang</th>
                 <th class="header">Jenis Usaha</th>
+                <th class="header">Standart Besaran</th>
                 <th class="header">Option</th>
               </tr>
             </thead>
@@ -35,6 +36,11 @@
               <td><%= i+1%></td>
               <td><%= data[i].bidang%></td>
               <td><%= data[i].jenis%></td>
+              <td>
+                <% for(var k=0; k<data[i].rumus.length; k++){ %>
+                  <%= data[i].rumus[k].satuan%>  <%= data[i].rumus[k].batas_min%>  <%= data[i].rumus[k].simbolmin%> OBYEK <%= data[i].rumus[k].simbolmax%> <%= data[i].rumus[k].batas_max%>      
+                <%}%>
+              </td>
               <td>
                 <center>
                 <ul class="list-inline">
