@@ -19,7 +19,8 @@ var upload_shp = require('./isine/upload_shp');
 var user = require('./isine/user');
 var fn = require('./isine/ckeditor-upload-image');
 var cek_login = require('./isine/login').cek_login;
-var basic = require('./isine/basic');
+var pengaduan = require('./isine/pengaduan');
+var perizinan = require('./isine/perizinan');
 var manajemen_master = require('./isine/manajemen_master');
 
 
@@ -93,7 +94,8 @@ app.use('/upload_shp', upload_shp);
 app.use('/user', user);
 app.use('/uploadckeditor', fn);
 
-app.use('/basic', basic);
+app.use('/pengaduan', pengaduan);
+app.use('/perizinan', perizinan);
 app.use('/manajemen_master', manajemen_master);
 
 function compare(post, operator, value) {

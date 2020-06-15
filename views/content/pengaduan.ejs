@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/images/template/shortcut_icon.ico">
+    <title>Portal Informasi Dinas Lingkungan Hidup Kabupaten Jepara</title>
+
+    <link href="/stylesheets/template/css/theme.css" rel="stylesheet">
+    <link href="/stylesheets/template/css/style.css" rel="stylesheet">
+    <link href="/stylesheets/template/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Plugin This Page --> 
+    <!-- End Plugins This Page -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <% include ../template/header.ejs %>
+
+    <section style="margin-top: 60px;margin-bottom: 60px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+                    <div style="width: 100%;padding:30px;box-shadow:4px 4px 20px rgba(0, 0, 0, 0.1)">
+                        <h3 class="m-t-0 m-b-0 text-center">FORMULIR PENGADUAN</h3>
+                        <hr/>
+
+                        <form>
+                            <div class="form-group">
+                                <label>Jenis</label>
+                                <select class="form-control" name="" id="">
+                                    <option value="">-- Pilih --</option>
+                                    <option value="SPPL">SPPL</option>
+                                    <option value="UKL-UPL">UKL-UPL</option>
+                                    <option value="DLHP">DLHP</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Nama</label>
+                                <input type="text" class="form-control" name="" id="" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Alamat</label>
+                                <input type="text" class="form-control" name="" id="" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>No. KTP</label>
+                                <input type="text" class="form-control" name="" id="" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" class="form-control" name="" id="" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>No. Handphone</label>
+                                <input type="text" class="form-control" name="" id="" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Pengaduan</label>
+                                <input type="text" class="form-control" name="" id="editor" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Upload Dokumentasi (Dokumen/Foto)</label>
+                                <input type="file" class="form-control" name="" id="" placeholder="">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <% include ../template/footer.ejs %>
+
+    <script src="/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/javascripts/template/bootstrap.min.js"></script>
+    <script src="/plugins/ckeditor_4/ckeditor.js"></script>
+    <!-- Plugins This Page -->
+    <!-- End Plugins This Page -->
+    <script type="text/javascript">
+        CKEDITOR.replace( 'editor', {
+            toolbarGroups: [
+            { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+            { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+            { name: 'links', groups: [ 'links' ] },
+            { name: 'insert', groups: [ 'insert' ] },
+            { name: 'forms', groups: [ 'forms' ] },
+            { name: 'tools', groups: [ 'tools' ] },
+            { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+            { name: 'others', groups: [ 'others' ] },
+            '/',
+            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+            { name: 'styles', groups: [ 'styles' ] },
+            { name: 'colors', groups: [ 'colors' ] },
+            { name: 'about', groups: [ 'about' ] }
+            ],
+
+            removeButtons: 'Underline,Subscript,Superscript,About,Image,Styles,Format',
+            height: 310
+        });
+    </script>
+</body>
+</html>
