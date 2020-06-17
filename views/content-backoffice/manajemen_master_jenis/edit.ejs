@@ -154,7 +154,7 @@ $("#bidang").val("<%= data[0].bidang%>")
                 i++; 
             });
             $("#delete_row").click(function(){
-              i+=i-1
+              i=i-1;
               console.log(i);
                   if(i>1){
                     $("#addr"+(i-1)).html('');
