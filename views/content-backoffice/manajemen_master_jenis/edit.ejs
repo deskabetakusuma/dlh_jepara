@@ -92,7 +92,7 @@
                         </thead>
                         <tbody>
                         <% var xx; for(var i=0; i<rumus.length; i++){ %>
-                          <tr  id='addr0'>
+                          <tr  id='addr<%= i%>'>
                             <td><input type="text" class="form-control" name="satuan[]" id="" value="<%= rumus[i].satuan%>"></td>
                             <td><input type="text" class="form-control" name="batas_min[]" id="" value="<%= rumus[i].batas_min%>"></td>
                             <td>
@@ -154,7 +154,7 @@ $("#bidang").val("<%= data[0].bidang%>")
                 i++; 
             });
             $("#delete_row").click(function(){
-              i=i-1;
+              
               console.log(i);
                   if(i>1){
                     $("#addr"+(i-1)).html('');
