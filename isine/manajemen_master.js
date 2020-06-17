@@ -96,7 +96,7 @@ router.post('/submit_insert', cek_login, function(req, res){
   var idne ="";
   var post = {}
  post = req.body;
- 
+if(req.body.satuan){ 
 var satuan=req.body.satuan;
 var batas_min=req.body.batas_min;
 var simbolmin=req.body.simbolmin;
@@ -108,6 +108,7 @@ delete post['batas_min'];
 delete post['simbolmin'];
 delete post['simbolmax'];
 delete post['batas_max'];
+}
  console.log(post)
    sql_enak.insert(post).into("master_jenis").then(function (id) {
   console.log(id);
@@ -115,7 +116,7 @@ delete post['batas_max'];
 })
 .finally(function() {
   
-    
+    if(req.body.satuan){
     for(var i=0; i<satuan.length; i++){
    
       console.log(satuan[i]);
@@ -125,7 +126,7 @@ delete post['batas_max'];
       
       
     }
-  
+  }
     res.redirect('/manajemen_master/jenis'); 
   
 });
