@@ -1,0 +1,198 @@
+<% include ../../template-backoffice/header.ejs %>
+
+<!-- BEGIN PAGE CONTENT -->
+<div class="page-content">
+  <div class="header">
+    <h2><strong>Data Izin Lingkungan</strong></h2>
+    <div class="breadcrumb-wrapper">
+      <ol class="breadcrumb">
+        <li><a href="/backoffice">Dashboard</a>
+        </li>
+        <li class="active">Data</li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="panel">
+        <div class="panel-header header-line">
+           <!-- <a class="btn btn-primary btn-embossed" href="/manajemen_basic/insert" role="button"><i class="fa fa-plus" aria-hidden="true"></i>Tambah Data</a> -->
+        </div>
+        <div class="panel-content pagination2">
+          <table class="table table-bordered table-striped table-hover" id="data">
+            <thead>
+              <tr>
+                <th class="header">No.</th>
+                <th class="header">Nama Perusahaan</th>
+                <th class="header">Alamat Perusahaan</th>
+                <th class="header">Narahubung/No. Hp</th>
+                <th class="header">Jenis Usaha/kegiatan</th>
+                <th class="header">Option</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>
+                <ul class="list-inline m-b-0 text-center">
+                  <li><button class="btn btn-info btn-sm btn-embossed" data-toggle="modal" data-target=".modal-detail"><i class="fa fa-info" aria-hidden="true"></i></button></li>
+                </ul>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>  
+  </div>
+  <div class="footer">
+    <div class="copyright">
+      <p class="pull-left sm-pull-reset">
+        <span>Copyright <span class="copyright">©</span> 2018 </span>
+        <span>Pemerintah</span>.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- END PAGE CONTENT -->
+
+<% include ../../template-backoffice/footer.ejs %>
+<div class="modal fade modal-detail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Detail Data Perizinan Masuk</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12 col-lg-12 table-no-border">
+              <table class="table table-bordered m-b-0">
+                <tbody>
+                  <tr>
+                    <td style="width: 200px;">Nama Peruasahaan</td>
+                    <td style="width: 1px;;">:</td>
+                    <td>-</td>
+                  </tr>
+
+                  <tr>
+                    <td>Alamat Peruasahaan</td>
+                    <td>:</td>
+                    <td>-</td>
+                  </tr>
+
+                  <tr>
+                    <td>Narahubung/No. Hp</td>
+                    <td>:</td>
+                    <td>-</td>
+                  </tr>
+
+                  <tr>
+                    <td>Tanggal Pengajuan</td>
+                    <td>:</td>
+                    <td>-</td>
+                  </tr>
+
+                  <tr>
+                    <td>Jenis Usaha/Kegiatan</td>
+                    <td>:</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+            <div class="col-md-12 col-lg-12">
+              <hr/>
+            </div>
+
+
+            <div class="col-md-12 col-lg-12">
+              <table class="table table-bordered m-b-0">
+                <thead style="background-color: #e0e0e0;">
+                  <tr>
+                    <th style="text-align: center;">Satuan</th>
+                    <th style="text-align: center;">Batas Minimal</th>
+                    <th style="text-align: center;">&#8804;</th>
+                    <th style="text-align: center;width:100px">Ukuran</th>
+                    <th style="text-align: center;">&#8805;</th>
+                    <th style="text-align: center;">Batas Maximal</th>
+                  </tr>
+                </thead>
+
+
+                <tbody>
+                  <tr>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-md-12 col-lg-12">
+              <h4 class="bg-primary" style="padding: 15px;text-align: center;font-style: italic;"><strong>PERIZINAN INI MASUK KEDALAM
+                  SPPL/UKL UPL/AMDAL</strong></h4>
+            </div>
+
+            <div class="col-md-12 col-lg-12">
+              <hr / class="m-t-0">
+            </div> 
+            
+          </div>
+        </div>
+        <div class="modal-footer" style="background-color: #e0e0e0;">
+          <div style="width: 100%;display: flex;align-items: flex-end;">
+            <div style="width:95%;padding-right: 5%;">
+              <label>Verifikasi Perizinan</label>
+              <select class="form-control" name="" id="">
+                <option value="">-- Pilih --</option>
+                <option value="sppl">SPPL</option>
+                <option value="uklupl">UKL UPL</option>
+                <option value="amdal">AMDAL</option>
+              </select>
+            </div>
+            <div style="width:10%;">
+              <button class="btn btn-primary btn-embossed btn-block">Simpan</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#data').DataTable({
+      "language": {
+          "sProcessing":   "Sedang memproses...",
+          "sLengthMenu":   "_MENU_",
+          "sZeroRecords":  "Tidak ditemukan data yang sesuai",
+          "sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+          "sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 entri",
+          "sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",
+          "sInfoPostFix":  "",
+          "sUrl":          "",
+          "oPaginate": {
+            "sFirst":    "Pertama",
+            "sPrevious": "Sebelumnya",
+            "sNext":     "Selanjutnya",
+            "sLast":     "Terakhir"
+          }
+      },
+      "columnDefs": [
+          { "width": "70px", "targets": 5}
+      ],
+    });
+  });
+</script>

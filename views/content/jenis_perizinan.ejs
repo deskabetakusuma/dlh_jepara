@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Dinas Lingkungan Hidup Kabupaten Jepara">
+    <link rel="shortcut icon" href="/images/template/shortcut_icon.ico">
+    <title>Portal Perizinan Dan Pengaduan Dinas Lingkungan Hidup Kabupaten Jepara</title>
+
+    <link href="/stylesheets/template/css/theme.css" rel="stylesheet">
+    <link href="/stylesheets/template/css/style.css" rel="stylesheet">
+    <link href="/stylesheets/template/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Plugin This Page -->
+    <!-- End Plugins This Page -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body id="page-jenis-perizinan">
+    <% include ../template/header.ejs %>
+
+    <section style="margin-top: 60px;margin-bottom: 60px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <h3 class="text-center">Silahkan Pilih Izin Yang Akan Anda Ajukan </h3>
+                </div>
+            </div>
+            <div class="row m-t-15">
+                <div class="col-md-4 col-lg-4">
+                    <a href="/perizinan/data_izin_lingkungan">
+                        <div class="box">
+                            <img src="https://via.placeholder.com/200">
+                            <h3 class="m-t-30">Izin Lingkungan</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-lg-4">
+                    <a href="#">
+                        <div class="box">
+                            <img src="https://via.placeholder.com/200">
+                            <h3 class="m-t-30">Izin Pembuangan Air Limbah</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-lg-4">
+                    <a href="#">
+                        <div class="box">
+                            <img src="https://via.placeholder.com/200">
+                            <h3 class="m-t-30">Izin Pengelolaan Limbah B3</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <% include ../template/footer.ejs %>
+
+    <script src="/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/javascripts/template/bootstrap.min.js"></script>
+    <script src="/plugins/ckeditor_4/ckeditor.js"></script>
+    <!-- Plugins This Page -->
+    <!-- End Plugins This Page -->
+    <script type="text/javascript">
+        CKEDITOR.replace('editor', {
+            toolbarGroups: [{
+                    name: 'clipboard',
+                    groups: ['clipboard', 'undo']
+                },
+                {
+                    name: 'editing',
+                    groups: ['find', 'selection', 'spellchecker', 'editing']
+                },
+                {
+                    name: 'links',
+                    groups: ['links']
+                },
+                {
+                    name: 'insert',
+                    groups: ['insert']
+                },
+                {
+                    name: 'forms',
+                    groups: ['forms']
+                },
+                {
+                    name: 'tools',
+                    groups: ['tools']
+                },
+                {
+                    name: 'document',
+                    groups: ['mode', 'document', 'doctools']
+                },
+                {
+                    name: 'others',
+                    groups: ['others']
+                },
+                '/',
+                {
+                    name: 'basicstyles',
+                    groups: ['basicstyles', 'cleanup']
+                },
+                {
+                    name: 'paragraph',
+                    groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph']
+                },
+                {
+                    name: 'styles',
+                    groups: ['styles']
+                },
+                {
+                    name: 'colors',
+                    groups: ['colors']
+                },
+                {
+                    name: 'about',
+                    groups: ['about']
+                }
+            ],
+
+            removeButtons: 'Underline,Subscript,Superscript,About,Image,Styles,Format',
+            height: 310
+        });
+    </script>
+</body>
+
+</html>

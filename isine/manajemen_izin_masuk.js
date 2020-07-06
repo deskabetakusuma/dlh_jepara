@@ -8,13 +8,14 @@ var passport = require('passport')
   , cookieParser = require('cookie-parser')
   , path = require('path')
   ,  sha1 = require('sha1');
-var sql_enak = require('../database/mysql_enak.js').connection;
-var cek_login = require('./login').cek_login;
-var cek_login_google = require('./login').cek_login_google;
-var dbgeo = require("dbgeo");
-var multer = require("multer");
-var st = require('knex-postgis')(sql_enak);
-path.join(__dirname, '/public/foto')
+  var sql_enak = require('../database/mysql_enak.js').connection;
+  var cek_login = require('./login').cek_login;
+  var cek_login_google = require('./login').cek_login_google;
+  var dbgeo = require("dbgeo");
+  var multer = require("multer");
+  var st = require('knex-postgis')(sql_enak);
+  var deasync = require('deasync');
+  path.join(__dirname, '/public/foto')
   router.use(bodyParser.json());
   router.use(bodyParser.urlencoded({ extended: true }));
 
@@ -57,24 +58,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 //start-------------------------------------
-router.get('/', function(req, res) {
-  res.render('content/perizinan'); 
+router.get('/izin_lingkungan', cek_login, function(req, res) {
+  res.render('content-backoffice/manajemen_izin_masuk/izin_lingkungan'); 
 });
-
-router.get('/jenis', function(req, res) {
-  res.render('content/jenis_perizinan'); 
-});
-
-router.get('/data_izin_lingkungan', function (req, res) {
-  res.render('content/data_izin_lingkungan');
-});
-
-router.get('/formulir_izin_lingkungan', function(req, res) {
-  res.render('content/formulir_izin_lingkungan'); 
-});
-
-router.get('/syarat_izin_lingkungan', function (req, res) {
-  res.render('content/syarat_izin_lingkungan');
-});
-
 module.exports = router;

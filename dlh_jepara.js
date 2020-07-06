@@ -22,6 +22,8 @@ var cek_login = require('./isine/login').cek_login;
 var pengaduan = require('./isine/pengaduan');
 var perizinan = require('./isine/perizinan');
 var manajemen_master = require('./isine/manajemen_master');
+var manajemen_izin_masuk = require('./isine/manajemen_izin_masuk');
+var manajemen_izin_lingkungan = require('./isine/manajemen_izin_lingkungan');
 
 
 var app = express();
@@ -97,6 +99,8 @@ app.use('/uploadckeditor', fn);
 app.use('/pengaduan', pengaduan);
 app.use('/perizinan', perizinan);
 app.use('/manajemen_master', manajemen_master);
+app.use('/manajemen_izin_masuk', manajemen_izin_masuk);
+app.use('/manajemen_izin_lingkungan', manajemen_izin_lingkungan);
 
 function compare(post, operator, value) {
   switch (operator) {

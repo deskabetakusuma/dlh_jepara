@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Dinas Lingkungan Hidup Kabupaten Jepara">
+    <link rel="shortcut icon" href="/images/template/shortcut_icon.ico">
+    <title>Portal Perizinan Dan Pengaduan Dinas Lingkungan Hidup Kabupaten Jepara</title>
+
+    <link href="/stylesheets/template/css/theme.css" rel="stylesheet">
+    <link href="/stylesheets/template/css/style.css" rel="stylesheet">
+    <link href="/stylesheets/template/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+
+    <!-- Plugin This Page -->
+    <!-- End Plugins This Page -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    .datepicker{
+        margin-top: 0;
+    }
+
+    .select2-container .select2-selection--single{
+        height: 38px;
+        border:1px solid #e7e7e7;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered{
+        line-height: 38px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow{
+        height: 38px;
+    }
+    </style>
+</head>
+
+<body>
+    <% include ../template/header.ejs %>
+
+    <section style="margin-top: 60px;margin-bottom: 60px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div style="width: 100%;padding:30px;box-shadow:4px 4px 20px rgba(0, 0, 0, 0.1)">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                                <h3 class="m-t-0 m-b-0 text-center">FORMULIR IZIN LINGKUNGAN</h3>
+                                <hr />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <form>
+                                <div class="col-md-12 col-lg-12 table-no-border">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td style="vertical-align: middle;width: 200px;">Nama Perusahaan</td>
+                                                <td style="vertical-align: middle;width: 1px;">:</td>
+                                                <td><input type="text" class="form-control" name="" id=""></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="vertical-align: middle;">Alamat Perusahaan</td>
+                                                <td style="vertical-align: middle;">:</td>
+                                                <td><input type="text" class="form-control" name="" id=""></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="vertical-align: middle;">Narahubung / No. Hp</td>
+                                                <td style="vertical-align: middle;">:</td>
+                                                <td><input type="text" class="form-control" name="" id=""></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="vertical-align: middle;">Tanggal Pengajuan</td>
+                                                <td style="vertical-align: middle;">:</td>
+                                                <td><input type="text" class="form-control" name="" id="tgl"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: middle;">Jenis usaha/Kegiatan</td>
+                                                <td style="vertical-align: middle;">:</td>
+                                                <td>
+                                                    <select class="form-control js-example-basic-multiple" name=""
+                                                        id="">
+                                                        <option>-- Pilih --</option>
+                                                        <option></option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-md-12 col-lg-12">
+                                    <table class="table table-bordered">
+                                        <thead style="background-color: #e0e0e0;">
+                                            <tr>
+                                                <th style="text-align: center;">Satuan</th>
+                                                <th style="text-align: center;">Batas Minimal</th>
+                                                <th style="text-align: center;">&#8804;</th>
+                                                <th style="text-align: center;width:100px">Ukuran</th>
+                                                <th style="text-align: center;">&#8805;</th>
+                                                <th style="text-align: center;">Batas Maximal</th>
+                                            </tr>
+                                        </thead>
+
+
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align: center;">-</td>
+                                                <td style="text-align: center;">-</td>
+                                                <td style="text-align: center;">-</td>
+                                                <td style="text-align: center;">
+                                                    <input type="text" class="form-control" name="" id="">
+                                                </td>
+                                                <td style="text-align: center;">-</td>
+                                                <td style="text-align: center;">-</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <% include ../template/footer.ejs %>
+
+    <script src="/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/javascripts/template/bootstrap.min.js"></script>
+    <script src="/plugins/ckeditor_4/ckeditor.js"></script>
+    <script src="/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <!-- Plugins This Page -->
+    <!-- End Plugins This Page -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+
+        $('#tgl').datepicker({
+            format: 'yyyy-mm-dd',
+            orientation: "auto top",
+            autoclose: true,
+            todayHighlight:true,
+        });
+        
+        CKEDITOR.replace('editor', {
+            toolbarGroups: [{
+                    name: 'clipboard',
+                    groups: ['clipboard', 'undo']
+                },
+                {
+                    name: 'editing',
+                    groups: ['find', 'selection', 'spellchecker', 'editing']
+                },
+                {
+                    name: 'links',
+                    groups: ['links']
+                },
+                {
+                    name: 'insert',
+                    groups: ['insert']
+                },
+                {
+                    name: 'forms',
+                    groups: ['forms']
+                },
+                {
+                    name: 'tools',
+                    groups: ['tools']
+                },
+                {
+                    name: 'document',
+                    groups: ['mode', 'document', 'doctools']
+                },
+                {
+                    name: 'others',
+                    groups: ['others']
+                },
+                '/',
+                {
+                    name: 'basicstyles',
+                    groups: ['basicstyles', 'cleanup']
+                },
+                {
+                    name: 'paragraph',
+                    groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph']
+                },
+                {
+                    name: 'styles',
+                    groups: ['styles']
+                },
+                {
+                    name: 'colors',
+                    groups: ['colors']
+                },
+                {
+                    name: 'about',
+                    groups: ['about']
+                }
+            ],
+
+            removeButtons: 'Underline,Subscript,Superscript,About,Image,Styles,Format',
+            height: 310
+        });
+    </script>
+</body>
+
+</html>
