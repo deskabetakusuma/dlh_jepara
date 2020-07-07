@@ -58,7 +58,7 @@ passport.use(new LocalStrategy({
 passport.use(new GoogleStrategy({
     clientID: "1017151440022-7jkuiqa8t0eqpebbl85nktugmh8rqpvm.apps.googleusercontent.com",
     clientSecret: "37VDcokioP5LluYvts_rfZio",
-    callbackURL: "http://singmantap.jeparakab.go.id/autentifikasi/auth/google/callback"
+    callbackURL: "https://mapgeo.id:8855/autentifikasi/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     console.log(profile)
@@ -103,13 +103,14 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 router.get('/auth/google',
-  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.email'] }));
+  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile',
+        'https://www.googleapis.com/auth/userinfo.email'] }));
 
 router.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: '/' }),
   function(req, res) {
 console.log(req.user)
-    res.redirect("/izin_pemanfaatan_ruang")}
+    res.redirect("/perizinan/jenis")}
   );
 
 
@@ -139,7 +140,7 @@ router.get('/logout', function(req, res){
 });
 router.get('/logout_google', function(req, res){
   req.logout();
-  res.redirect('https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://singmantap.jeparakab.go.id');
+  res.redirect('https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://mapgeo.id:8855');
 });
 
 module.exports.router = router;
