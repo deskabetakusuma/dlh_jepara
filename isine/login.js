@@ -140,7 +140,7 @@ router.get('/logout', function(req, res){
 });
 router.get('/logout_google', function(req, res){
   req.logout();
-  res.redirect('https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://mapgeo.id:8855');
+  res.redirect('https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://dlhjepara.mapgeo.id');
 });
 
 module.exports.router = router;
