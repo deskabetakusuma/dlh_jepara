@@ -56,9 +56,9 @@ passport.use(new LocalStrategy({
     	
 ));
 passport.use(new GoogleStrategy({
-    clientID: "1017151440022-7jkuiqa8t0eqpebbl85nktugmh8rqpvm.apps.googleusercontent.com",
-    clientSecret: "37VDcokioP5LluYvts_rfZio",
-    callbackURL: "https://mapgeo.id:8855/autentifikasi/auth/google/callback"
+    clientID: "1017151440022-m4g8v87dno1fpqb5qovni7dg1loju5fq.apps.googleusercontent.com",
+    clientSecret: "weuOlon2TIbZErLxjCljVAfS",
+    callbackURL: "https://dlhjepara.mapgeo.id/autentifikasi/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     console.log(profile)
