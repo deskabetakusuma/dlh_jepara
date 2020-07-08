@@ -61,19 +61,19 @@ router.get('/', function(req, res) {
   res.render('content/perizinan'); 
 });
 
-router.get('/jenis', cek_login_google, function(req, res) {
+router.get('/jenis', function(req, res) {
   res.render('content/jenis_perizinan'); 
 });
 
-router.get('/data_izin_lingkungan', cek_login_google, function (req, res) {
+router.get('/data_izin_lingkungan', function (req, res) {
   res.render('content/data_izin_lingkungan');
 });
 
-router.get('/formulir_izin_lingkungan', cek_login_google, function(req, res) {
+router.get('/formulir_izin_lingkungan', function(req, res) {
   res.render('content/formulir_izin_lingkungan'); 
 });
 
-router.get('/syarat_izin_lingkungan', cek_login_google, function (req, res) {
+router.get('/syarat_izin_lingkungan', function (req, res) {
   res.render('content/syarat_izin_lingkungan');
 });
 
