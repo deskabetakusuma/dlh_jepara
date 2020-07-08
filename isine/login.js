@@ -58,7 +58,7 @@ passport.use(new LocalStrategy({
 passport.use(new GoogleStrategy({
     clientID: "449214312786-s6mnka1v9k5tvage2vl1ldhj3eaf9939.apps.googleusercontent.com",
     clientSecret: "U4Fh-MnMY3SJEC9GM6DZ1U8K",
-    callbackURL: "http://dlhjepara.mapgeo.id/autentifikasi/auth/google/callback"
+    callbackURL: "https://dlhjepara.mapgeo.id/autentifikasi/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     console.log(profile)
