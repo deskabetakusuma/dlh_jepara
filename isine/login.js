@@ -11,7 +11,7 @@ var passport = require('passport')
   , flash=require("connect-flash")
   ,  sha1 = require('sha1');
 
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 
   router.use(bodyParser.urlencoded({ extended: true }));
@@ -58,7 +58,7 @@ passport.use(new LocalStrategy({
 passport.use(new GoogleStrategy({
     clientID: "449214312786-s6mnka1v9k5tvage2vl1ldhj3eaf9939.apps.googleusercontent.com",
     clientSecret: "U4Fh-MnMY3SJEC9GM6DZ1U8K",
-    callbackURL: "https://dlhjepara.mapgeo.id/autentifikasi/auth/google/callback"
+    callbackURL: "http://dlhjepara.mapgeo.id/autentifikasi/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     console.log(profile)
@@ -102,9 +102,13 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
-router.get('/auth/google',
-  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile',
-        'https://www.googleapis.com/auth/userinfo.email'] }));
+// router.get('/auth/google',
+//   passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile',
+//         'https://www.googleapis.com/auth/userinfo.email'] }));
+
+
+        router.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: '/' }),
