@@ -134,6 +134,12 @@ app.get('/get_jenis/:bidang', function (req, res) {
 })
 });
 
+app.get('/get_jenis', function (req, res) {
+  connection.query("SELECT * from master_jenis where deleted=0", function(err, rows, fields) {
+  res.json(rows);
+})
+});
+
 app.get('/get_rumus/:id', function (req, res) {
   connection.query("SELECT * from rumus where id_jenis="+req.params.id, function(err, rows, fields) {
   res.json(rows);

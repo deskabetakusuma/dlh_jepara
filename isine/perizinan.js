@@ -70,7 +70,9 @@ router.get('/data_izin_lingkungan', cek_login_google, function (req, res) {
 });
 
 router.get('/formulir_izin_lingkungan', cek_login_google, function(req, res) {
-  res.render('content/formulir_izin_lingkungan'); 
+  connection.query("SELECT * from master_jenis where deleted=0", function(err, jenis, fields) {
+  res.render('content/formulir_izin_lingkungan',{jenis:jenis}); 
+})
 });
 
 router.get('/syarat_izin_lingkungan', cek_login_google, function (req, res) {
