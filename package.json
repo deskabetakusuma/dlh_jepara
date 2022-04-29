@@ -6,7 +6,7 @@
     "start": "node testnode.js"
   },
   "dependencies": {
-    "async": "~2.0.1",
+    "async": "~2.6.4",
     "body-parser": "^1.19.0",
     "bookshelf": "~0.10.2",
     "connect": "^3.7.0",
