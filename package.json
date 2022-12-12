@@ -42,7 +42,7 @@
   "description": "keren",
   "main": "testnode.js",
   "devDependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   },
   "author": "bhagas",
   "license": "ISC"
