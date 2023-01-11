@@ -18,7 +18,7 @@
     "errorhandler": "^1.5.1",
     "express-session": "^1.17.1",
     "gdal": "^0.9.9",
-    "knex": "~0.12.6",
+    "knex": "~2.4.0",
     "knex-postgis": "~0.2.0",
     "method-override": "^2.3.10",
     "mongodb": "~1.4.40",
